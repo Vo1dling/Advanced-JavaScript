@@ -2,7 +2,8 @@ s = ["h", "e", "l", "l", "o"];
 function revString(arr) {
   return arr.reverse();
 }
-console.log(revString(s));
+revString(s);
+console.log(s);
 
 st = ["H", "a", "n", "n", "a", "h"];
 function forRev(arr) {
@@ -14,11 +15,15 @@ function forRev(arr) {
 console.log(forRev(st));
 
 str = ["W", "o", "w"];
-let recursiveRev = (arr, n) => {
-  if (n == 0) {
+function recursiveRev(s) {
+  if (s.length === 0) {
     return [];
   }
 
-  return [arr[n - 1]].concat(recursiveRev(arr, --n));
-};
+  let v = s.shift();
+  recursiveRev(s);
+  s.push(v);
+  return s;
+}
+
 console.log(recursiveRev(str, 3));
